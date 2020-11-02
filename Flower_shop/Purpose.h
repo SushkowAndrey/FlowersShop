@@ -7,15 +7,15 @@ using namespace std;
 class Purpose  //назначение (подарок, домашний цветок)
 {
 private:
-    string Application;
+    string application;
 public:
     Purpose() {}
-    Purpose(string Application)
+    Purpose(string application)
     {
-        this->Application = Application;
+        this->application = application;
     }
     string GetApplication()
     {
-        return Application;
+        return application;
     }
 };

@@ -1,26 +1,40 @@
-#pragma once
+﻿#pragma once
 #include <iostream>
 #include <string>
 #include <vector>
 #include "Flowers.h"
-#include "Data_entry.h"
-#include "input_validation.h"
-#include "Import_from_file.h"
+#include "DataEntry.h"
+#include "InputValidation.h"
+#include "ImportFromFile.h"
 
 using namespace std;
+
+//вывод данных о цветке
+void Print(Flowers flowers)
+{
+    cout << "Наименование цветка " << flowers.GetType() << endl;
+    cout << "Назначение цветка  - " << flowers.Getpurpose() << endl;
+    cout << "Форма цветка - " << flowers.GetFormat() << endl;
+    cout << "Цвет цветка - " << flowers.GetColor() << endl;
+    cout << "Длинна цветка в см. - " << flowers.GetLong() << endl;
+    cout << "Температура хранения в град. С - " << flowers.GetTemperature() << endl;
+    cout << "Влажность хранения, % - " << flowers.GetHumidity() << endl;
+    cout << "Цена готового цветка в руб. - " << flowers.GetPrice() << endl;
+}
+
 //ввод данных в вектор в программе
 vector <Flowers> Input(vector <Flowers> flowers)
 {
-    string Sym;
-    char Num;
+    string symbol;
+    char letter;
     do
     {
         flowers.push_back(ConsoleInputFlowers());
-        cout << "¬нести данные о новом поступлении? (Y/N)" << endl;
-        cin >> Sym;
-        Num = Checking_the_symbol_Y_N(Sym);
-        if (Num == 'N') break;
-    } while (Num == 'Y');
+        cout << "Внести данные о новом поступлении? (Y/N)" << endl;
+        cin >> symbol;
+        letter = CheckingTheSymbolYN(symbol);
+        if (letter == 'N') break;
+    } while (letter == 'Y');
     system("cls");
     return flowers;
 }
@@ -36,7 +50,7 @@ void Output(vector <Flowers> flowers)
 {
     for (auto element : flowers)
     {
-        element.Print();
+        Print(element);
+        cout << "_______________________________" << endl;
     }
 }
-

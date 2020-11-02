@@ -7,13 +7,13 @@ using namespace std;
 class Storage    //хранение
 {
 public:
-    double Temperature;
-    double Humidity; //влажность
+    double temperature;
+    double humidity; //влажность
     Storage() {}
-    Storage(double Temperature, double Humidity)
+    Storage(double temperature, double humidity)
     {
-        this->Temperature = Temperature;
-        this->Humidity = Humidity;
+        this->temperature = temperature;
+        this->humidity = humidity;
     }
 
 };

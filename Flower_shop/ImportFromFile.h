@@ -5,32 +5,31 @@
 #include <vector>
 #include "Flowers.h"
 
-
 using namespace std;
 
 Flowers ImportFromFile(string file_path) {
 	ifstream File;
-	string Temp;
+	string temp;
 	vector <string> NewTemp;
-	int pos;
+	int position;
 	try
 	{
 		File.open(file_path, ios::in);
 		while (!File.eof())
 		{
-			File >> Temp;
-			for (int i = 0; i < Temp.size(); i++)
+			File >> temp;
+			for (int i = 0; i < temp.size(); i++)
 			{
-				pos = Temp.find(";");
-				NewTemp.push_back(Temp.substr(0, pos));
-				Temp = Temp.substr(pos + 1);
+				position = temp.find(";");
+				NewTemp.push_back(temp.substr(0, position));
+				temp = temp.substr(position + 1);
 			}
 		}
 		File.close();
 	}
 	catch (...)
 	{
-		cout << "‘айл не открыт" << endl;
+		cout << "Файл не открыт" << endl;
 	}
 	//формат сохранени¤: 0-название; 1-назначение; 2-форма; 3-цвет; 4-длинна; 5-температура хранени¤; 6-влажность хранени¤; 7-цена
 	string Type= NewTemp[0], Application = NewTemp[1], Format = NewTemp[2], Color=NewTemp[3];
@@ -39,12 +38,10 @@ Flowers ImportFromFile(string file_path) {
 	double Humidity = stoi(NewTemp[6]);
 	double Price = stoi(NewTemp[7]);
 
-
 	Storage storage(Temperature, Humidity);
 	Purpose purpose(Application);
 	Parameters parameters(Long, Price, Color);
 	Flowers flowers(Type, Format, parameters, purpose, storage);
 	return flowers;
-
 
 }

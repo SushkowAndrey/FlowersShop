@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <iostream>
 #include <string>
 
@@ -7,11 +7,11 @@ using namespace std;
 class Forms  //форма (букет, комнатный)
 {
 protected:
-    string Format;
+    string format;
 public:
     Forms() {}
-    Forms(string Format)
+    Forms(string format)
     {
-        this->Format = Format;
+        this->format = format;
     }
 };

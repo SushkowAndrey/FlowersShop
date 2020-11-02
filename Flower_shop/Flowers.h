@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <iostream>
 #include <string>
 #include "Forms.h"
@@ -12,34 +12,23 @@ using namespace std;
 class Flowers : public Forms
 {
 private:
-    string Type; //название цветка
+    string type; //название цветка
     Parameters parameters;
     Purpose purpose;
     Storage storage;
 
 public:
     Flowers() {}
-    Flowers(string Type, string Format, Parameters parameters, Purpose purpose, Storage storage) : Forms (Format)
+    Flowers(string type, string format, Parameters parameters, Purpose purpose, Storage storage) : Forms (format)
     {
-        this->Type = Type;
+        this->type = type;
         this->parameters = parameters;
         this->purpose = purpose;
         this->storage = storage;
     }
-    void Print()
-    {
-        cout << "Наименование цветка " << Type << endl;
-        cout << "Назначение цветка  - " << purpose.GetApplication() << endl;
-        cout << "Форма цветка - " << Format << endl;
-        cout << "Цвет цветка - " << parameters.Color << endl;
-        cout << "Длинна цветка в см. - " << parameters.Long << endl;
-        cout << "Температура хранения в град. С - " << storage.Temperature << endl;
-        cout << "Влажность хранения, % - " << storage.Humidity << endl;
-        cout << "Цена готового цветка в руб. - " << parameters.Price << endl;
-    }
     string GetType()
     {
-        return Type;
+        return type;
     }
     string Getpurpose()
     {
@@ -47,27 +36,26 @@ public:
     }
     string GetFormat()
     {
-        return Format;
+        return format;
     }
     string GetColor()
     {
-        return parameters.Color;
+        return parameters.color;
     }
     int GetLong()
     {
-        return parameters.Long;
+        return parameters.longFlowers;
     }
     int GetTemperature()
     {
-        return storage.Temperature;
+        return storage.temperature;
     }
     int GetHumidity()
     {
-        return storage.Humidity;
+        return storage.humidity;
     }
     double GetPrice()
     {
-        return parameters.Price;
+        return parameters.price;
     }
-
 };

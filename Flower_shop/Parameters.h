@@ -8,14 +8,14 @@ using namespace std;
 class Parameters 
 {
 public:
-    int Long;
-    double Price;
-    string Color;
+    int longFlowers;
+    double price;
+    string color;
     Parameters() {}
-    Parameters(int Long, double Price, string Color)
+    Parameters(int longFlowers, double price, string color)
     {
-        this->Long = Long;
-        this->Price = Price;
-        this->Color = Color;
+        this->longFlowers = longFlowers;
+        this->price = price;
+        this->color = color;
     }
 };

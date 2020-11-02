@@ -5,15 +5,13 @@
 #include <vector>
 #include "Interface.h"
 #include "Flowers.h"
-#include "input_validation.h"
-#include "Data_entry.h"
+#include "InputValidation.h"
+#include "DataEntry.h"
 #include "Fun.h"
-#include "Export_in_file.h"
-#include "Import_from_file.h"
-
+#include "ExportInFile.h"
+#include "ImportFromFile.h"
 
 using namespace std;
-
 
 int main()
 {
@@ -24,15 +22,15 @@ int main()
     vector <Flowers> flowers;
    
     string symbol;
-    int Num;
+    int number;
 
     do {
         interface.PrintMenu();
         cout << "Введите пункт меню - ";
         cin >> symbol;
-        Num = Checking_the_symbol(symbol);
+        number = CheckingTheSymbol(symbol);
         system("cls");
-        switch (Num)
+        switch (number)
         {
         case 1:
             Output(flowers);
@@ -46,7 +44,7 @@ int main()
         case 5:
             break;
         case 6:
-            Export_to_flovers(flowers, flowers.size());
+            ExportToFlowers(flowers, flowers.size());
             break;
         case 7:
             flowers = Input_from_file(flowers);
@@ -58,11 +56,5 @@ int main()
             interface.PrintError("Некорректный выбор меню");
             break;
         }
-    } while (Num != 0);
-
-
-
-
-
-
+    } while (number != 0);
 }

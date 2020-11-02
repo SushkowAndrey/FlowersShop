@@ -7,14 +7,13 @@
 
 using namespace std;
 
-
-void Export(string file_path, string Informations)
+void Export(string file_path, string informations)
 {
 	ofstream FileFlowers;
 	FileFlowers.open(file_path, ios::app);
 	try
 	{
-		FileFlowers << Informations << endl;
+		FileFlowers << informations << endl;
 	}
 	catch (...)
 	{
@@ -23,21 +22,20 @@ void Export(string file_path, string Informations)
 	FileFlowers.close();
 }
 
-void Export_to_flovers(vector <Flowers> flowers, int size)
+void ExportToFlowers(vector <Flowers> flowers, int size)
 {
-	string Temp;
+	string temp;
 	for (int i = 0; i < size; i++)
 	{
 		//формат сохранения: 0-название; 1-назначение; 2-форма; 3-цвет; 4-длинна; 5-температура хранения; 6-влажность хранения; 7-цена
-		Temp += flowers[i].GetType() + ";";
-		Temp += flowers[i].Getpurpose() + ";";
-		Temp += flowers[i].GetFormat() + ";";
-		Temp += flowers[i].GetColor() + ";";
-		Temp += to_string(flowers[i].GetLong()) + ";";
-		Temp += to_string(flowers[i].GetTemperature()) + ";";
-		Temp += to_string(flowers[i].GetHumidity()) + ";";
-		Temp += to_string(flowers[i].GetPrice()) + "\n";
-	
+		temp += flowers[i].GetType() + ";";
+		temp += flowers[i].Getpurpose() + ";";
+		temp += flowers[i].GetFormat() + ";";
+		temp += flowers[i].GetColor() + ";";
+		temp += to_string(flowers[i].GetLong()) + ";";
+		temp += to_string(flowers[i].GetTemperature()) + ";";
+		temp += to_string(flowers[i].GetHumidity()) + ";";
+		temp += to_string(flowers[i].GetPrice()) + "\n";
 	}
-	Export("Flowers.csv", Temp);
+	Export("Flowers.csv", temp);
 }
